@@ -6,6 +6,7 @@ use bevy::app::App;
 
 pub fn run_app() {
   println!("Welcome to sbchild blog!");
-  let build_text = build_info::format!("{{{} v{} built with {} at {}}}", $.crate_info.name, $.crate_info.version, $.compiler, $.timestamp)
+  let build_text = build_info::format!("{{{} v{} built with {} at {}}}", $.crate_info.name, $.crate_info.version, $.compiler, $.timestamp);
+  println!("Build Info: {build_text}");
   App::new().run();
 }
