@@ -1,0 +1,48 @@
+[package]
+name = "sbchild-blog"
+version = "0.1.0"
+edition = "2021"
+authors = ["sbchild <sbchild0@gmail.com>"]
+description = "The new design of my blog."
+repository = "https://github.com/sb-child/blog-next"
+license = "MPL-2.0"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[workspace]
+members = ["target_native", "target_web"]
+resolver = "2"
+
+[dependencies]
+bevy = "0.14.1"
+build-info = "*"
+
+[build-dependencies]
+build-info-build = "*"
+
+[profile.dev.package."*"]
+opt-level = 3
+
+# [profile.release.package.sbchild-blog-web]
+# inherits = "release"
+# opt-level = "s"
+# strip = "debuginfo"
+
+# wasm-bindgen = "*"
+# console_error_panic_hook = { version = "*", optional = true }
+
+# [profile.dev]
+# opt-level = 1
+
+# [profile.dev.package."*"]
+# opt-level = 3
+
+# [profile.release]
+# codegen-units = 1
+# lto = "thin"
+
+# [profile.wasm-release]
+# inherits = "release"
+# opt-level = "s"
+# strip = "debuginfo"
