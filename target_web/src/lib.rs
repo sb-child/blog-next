@@ -12,5 +12,6 @@ extern "C" {}
 
 #[wasm_bindgen]
 pub fn main() {
+  utils::set_panic_hook();
   run_app();
 }
