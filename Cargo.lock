@@ -1232,20 +1232,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8164a6499aae6b0085e6da8fa528c4b0c37fcb1ed3cc00e175e9f98005807ffc"
 dependencies = [
  "bincode",
- "build-info-common",
+ "build-info-common 0.0.37",
  "build-info-proc",
 ]
 
 [[package]]
 name = "build-info-build"
-version = "0.0.37"
+version = "0.0.38"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9da85beeeebafe621669220862ddd8e08ac741a56d171e2ab11cb8a16544d1e6"
+checksum = "c967db0724d13dfcd67d6f54023bfd0f7093872810c1377f00c6b86ce507513f"
 dependencies = [
  "anyhow",
  "base64 0.22.1",
  "bincode",
- "build-info-common",
+ "build-info-common 0.0.38",
  "cargo_metadata",
  "chrono",
  "git2",
@@ -1263,7 +1263,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8e049ed5c6d1f7cb5d2ee6838b9a284a1a20b9c17c9504eae08253f428af2eaa"
 dependencies = [
  "chrono",
- "derive_more",
+ "derive_more 0.99.18",
+ "semver",
+ "serde",
+]
+
+[[package]]
+name = "build-info-common"
+version = "0.0.38"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c88e36f2531db6136c2d42810698ced69af85872f4559c7b6dccb8e7c30485d2"
+dependencies = [
+ "chrono",
+ "derive_more 1.0.0",
  "semver",
  "serde",
 ]
@@ -1277,7 +1289,7 @@ dependencies = [
  "anyhow",
  "base64 0.22.1",
  "bincode",
- "build-info-common",
+ "build-info-common 0.0.37",
  "chrono",
  "num-bigint",
  "num-traits",
@@ -1708,6 +1720,27 @@ dependencies = [
  "quote",
  "rustc_version",
  "syn 2.0.72",
+]
+
+[[package]]
+name = "derive_more"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a9b99b9cbbe49445b21764dc0625032a89b145a2642e67603e1c936f5458d05"
+dependencies = [
+ "derive_more-impl",
+]
+
+[[package]]
+name = "derive_more-impl"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cb7330aeadfbe296029522e6c40f315320aba36fc43a5b3632f3795348f3bd22"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.72",
+ "unicode-xid",
 ]
 
 [[package]]
