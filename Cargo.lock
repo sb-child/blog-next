@@ -1227,12 +1227,12 @@ dependencies = [
 
 [[package]]
 name = "build-info"
-version = "0.0.37"
+version = "0.0.38"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8164a6499aae6b0085e6da8fa528c4b0c37fcb1ed3cc00e175e9f98005807ffc"
+checksum = "3465eaabbf2f3bf2a28a4ee66d16316071ef63c1ab9f336e833ea67f519c0348"
 dependencies = [
  "bincode",
- "build-info-common 0.0.37",
+ "build-info-common",
  "build-info-proc",
 ]
 
@@ -1245,7 +1245,7 @@ dependencies = [
  "anyhow",
  "base64 0.22.1",
  "bincode",
- "build-info-common 0.0.38",
+ "build-info-common",
  "cargo_metadata",
  "chrono",
  "git2",
@@ -1258,38 +1258,26 @@ dependencies = [
 
 [[package]]
 name = "build-info-common"
-version = "0.0.37"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8e049ed5c6d1f7cb5d2ee6838b9a284a1a20b9c17c9504eae08253f428af2eaa"
-dependencies = [
- "chrono",
- "derive_more 0.99.18",
- "semver",
- "serde",
-]
-
-[[package]]
-name = "build-info-common"
 version = "0.0.38"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c88e36f2531db6136c2d42810698ced69af85872f4559c7b6dccb8e7c30485d2"
 dependencies = [
  "chrono",
- "derive_more 1.0.0",
+ "derive_more",
  "semver",
  "serde",
 ]
 
 [[package]]
 name = "build-info-proc"
-version = "0.0.37"
+version = "0.0.38"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3d6be54b4df52147ae16dd43edf11990c1e628b25eaa8ed77a9b708c390f7963"
+checksum = "58463d44fa27e9afbf377c0f5661eaf8d3b69b1a4a45b0fa601b822ccf7512e8"
 dependencies = [
  "anyhow",
  "base64 0.22.1",
  "bincode",
- "build-info-common 0.0.37",
+ "build-info-common",
  "chrono",
  "num-bigint",
  "num-traits",
@@ -1568,12 +1556,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "convert_case"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6245d59a3e82a7fc217c5828a6692dbc6dfb63a0c8c90495621f7b9d79704a0e"
-
-[[package]]
 name = "core-foundation"
 version = "0.9.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1708,19 +1690,6 @@ name = "data-encoding"
 version = "2.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e8566979429cf69b49a5c740c60791108e86440e8be149bbea4fe54d2c32d6e2"
-
-[[package]]
-name = "derive_more"
-version = "0.99.18"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5f33878137e4dafd7fa914ad4e259e18a4e8e532b9617a2d0150262bf53abfce"
-dependencies = [
- "convert_case",
- "proc-macro2",
- "quote",
- "rustc_version",
- "syn 2.0.72",
-]
 
 [[package]]
 name = "derive_more"
