@@ -9,12 +9,17 @@ use wasm_bindgen::prelude::*;
 
 extern crate wee_alloc;
 
-// Use `wee_alloc` as the global allocator.
 #[global_allocator]
+/// global allocator used by wee_alloc
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-extern "C" {}
+extern "C" {
+  /// location changed event.
+  ///
+  /// `loc` is the location of current window.
+  fn on_location_change(loc: String);
+}
 
 #[wasm_bindgen]
 pub fn main() {

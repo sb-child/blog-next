@@ -11,8 +11,12 @@ cargo install wasm-pack
 
 ## Development Environment Setup / 设置开发环境
 
-- [Rust](https://www.rust-lang.org/)
+- [Rust](https://www.rust-lang.org/learn/get-started#installing-rust)
 - [Bevy Engine](https://bevyengine.org/learn/quick-start/getting-started/setup/#installing-os-dependencies)
+
+```bash
+./debug-native.sh
+```
 
 ## License / 许可证
 

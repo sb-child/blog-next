@@ -2,7 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-pub mod base_plugins;
+pub mod plugins;
 use bevy::{
   core_pipeline::{
     bloom::{BloomCompositeMode, BloomSettings},
@@ -11,12 +11,12 @@ use bevy::{
   prelude::*,
   sprite::MaterialMesh2dBundle,
 };
+use plugins::use_plugins;
 
 pub fn use_sense(app: &mut App) -> &mut App {
-  let app = app
-    .add_plugins(DefaultPlugins)
-    .add_systems(Startup, setup)
-    .add_systems(Update, update_bloom_settings);
+  let mut app = app;
+  app = use_plugins(app);
+  app.add_systems(Startup, setup).add_systems(Update, update_bloom_settings);
   app
 }
 
@@ -68,14 +68,14 @@ fn setup(
   });
 
   // UI
-  commands.spawn(
-    TextBundle::from_section("", TextStyle::default()).with_style(Style {
-      position_type: PositionType::Absolute,
-      bottom: Val::Px(12.0),
-      left: Val::Px(12.0),
-      ..default()
-    }),
-  );
+  // commands.spawn(
+  //   TextBundle::from_section("", TextStyle::default()).with_style(Style {
+  //     position_type: PositionType::Absolute,
+  //     bottom: Val::Px(12.0),
+  //     left: Val::Px(12.0),
+  //     ..default()
+  //   }),
+  // );
 }
 
 // ------------------------------------------------------------------------------------------------
