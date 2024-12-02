@@ -15,7 +15,7 @@ members = ["target_native", "target_web"]
 resolver = "2"
 
 [dependencies]
-bevy = "0.14.2"
+bevy = "0.15.0"
 build-info = "*"
 
 [build-dependencies]
