@@ -5,15 +5,15 @@
 pub mod plugins;
 use bevy::{
   core_pipeline::{
-    bloom::{BloomCompositeMode, BloomSettings},
+    bloom::{Bloom, BloomCompositeMode},
     tonemapping::Tonemapping,
   },
   prelude::*,
-  sprite::MaterialMesh2dBundle,
+  sprite::Material2d,
 };
 use plugins::use_plugins;
 
-pub fn use_sense(app: &mut App) -> &mut App {
+pub fn use_sence(app: &mut App) -> &mut App {
   let mut app = app;
   app = use_plugins(app);
   app.add_systems(Startup, setup).add_systems(Update, update_bloom_settings);
@@ -26,56 +26,48 @@ fn setup(
   mut materials: ResMut<Assets<ColorMaterial>>,
   asset_server: Res<AssetServer>,
 ) {
-  commands.spawn((
-      Camera2dBundle {
-          camera: Camera {
-              hdr: true, // 1. HDR is required for bloom
-              ..default()
-          },
-          tonemapping: Tonemapping::TonyMcMapface, // 2. Using a tonemapper that desaturates to white is recommended
-          ..default()
-      },
-      BloomSettings::default(), // 3. Enable bloom for the camera
-  ));
+  commands.spawn((Camera2d::default(), Bloom::default()));
 
-  // Sprite
-  commands.spawn(SpriteBundle {
-      texture: asset_server.load("image.png"),
-      sprite: Sprite {
-          color: Color::srgb(5.0, 5.0, 5.0), // 4. Put something bright in a dark environment to see the effect
-          custom_size: Some(Vec2::splat(160.0)),
-          ..default()
-      },
-      ..default()
-  });
+ /**
+  *
 
-  // Circle mesh
-  commands.spawn(MaterialMesh2dBundle {
     mesh: meshes.add(Circle::new(100.)).into(),
-    // 4. Put something bright in a dark environment to see the effect
     material: materials.add(Color::srgb(7.5, 0.0, 7.5)),
     transform: Transform::from_translation(Vec3::new(-200., 0., 0.)),
+
+  */
+
+  // Sprite
+  commands.spawn(Sprite {
+    image: asset_server.load("image.png"),
+    texture_atlas: None,
+    color: Color::srgb(1.0, 1.0, 1.0),
+    custom_size: Some(Vec2::splat(160.0)),
     ..default()
   });
 
+  // Circle mesh
+  commands.spawn(MeshMaterial2d {
+
+  });
+
   // Hexagon mesh
-  commands.spawn(MaterialMesh2dBundle {
+  commands.spawn(MeshMaterial2d {
     mesh: meshes.add(RegularPolygon::new(100., 6)).into(),
-    // 4. Put something bright in a dark environment to see the effect
     material: materials.add(Color::srgb(6.25, 9.4, 9.1)),
     transform: Transform::from_translation(Vec3::new(200., 0., 0.)),
     ..default()
   });
 
   // UI
-  // commands.spawn(
-  //   TextBundle::from_section("", TextStyle::default()).with_style(Style {
-  //     position_type: PositionType::Absolute,
-  //     bottom: Val::Px(12.0),
-  //     left: Val::Px(12.0),
-  //     ..default()
-  //   }),
-  // );
+  commands.spawn(
+    TextBundle::from_section("", TextStyle::default()).with_style(Style {
+      position_type: PositionType::Absolute,
+      bottom: Val::Px(12.0),
+      left: Val::Px(12.0),
+      ..default()
+    }),
+  );
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -83,6 +75,7 @@ fn setup(
 fn update_bloom_settings(
   mut camera: Query<(Entity, Option<&mut BloomSettings>), With<Camera>>,
   mut text: Query<&mut Text>,
+  mut windows: Query<&mut Window>,
   mut commands: Commands,
   keycode: Res<ButtonInput<KeyCode>>,
   time: Res<Time>,
@@ -90,10 +83,17 @@ fn update_bloom_settings(
   let bloom_settings = camera.single_mut();
   let mut text = text.single_mut();
   let text = &mut text.sections[0].value;
-
+  let window = windows.single();
+  let window_settings = format!(
+    "{}x{} cur {:?} fac {}",
+    window.physical_width(),
+    window.physical_height(),
+    window.physical_cursor_position(),
+    window.scale_factor()
+  );
   match bloom_settings {
     (entity, Some(mut bloom_settings)) => {
-      *text = "BloomSettings (Toggle: Space)\n".to_string();
+      *text = format!("BloomSettings (Toggle: Space) {}\n", window_settings);
       text
         .push_str(&format!("(Q/A) Intensity: {}\n", bloom_settings.intensity));
       text.push_str(&format!(

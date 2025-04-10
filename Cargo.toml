@@ -10,12 +10,16 @@ license = "MPL-2.0"
 [lib]
 crate-type = ["cdylib", "rlib"]
 
+# [[bin]]
+# name = "native"
+# path = "target_native/src/main.rs"
+
 [workspace]
-members = ["target_native", "target_web"]
+members = ["src-native", "src-wasm"]
 resolver = "2"
 
 [dependencies]
-bevy = "0.14.2"
+bevy = "0.15.0"
 build-info = "*"
 
 [build-dependencies]

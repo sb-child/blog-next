@@ -13,7 +13,6 @@ use bevy::{
 
 #[derive(Component)]
 struct Card {
-    x: f32,
-    y: f32,
+  x: f32,
+  y: f32,
 }
-

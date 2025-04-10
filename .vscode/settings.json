@@ -1,3 +1,22 @@
 {
-    "localaipilot.standalone.ollamaModel": "stable-code:latest"
+	"localaipilot.standalone.ollamaModel": "stable-code:latest",
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[css]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"biome.lspBin": "./web/node_modules/@biomejs/biome/bin/biome"
 }
