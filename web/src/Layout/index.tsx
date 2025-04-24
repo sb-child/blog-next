@@ -1,5 +1,6 @@
 import type { ComponentChildren } from "preact";
 import "./index.css";
+import { animate } from 'animejs';
 
 const App = (props: { children?: ComponentChildren }) => {
   return (
