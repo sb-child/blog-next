@@ -11,6 +11,12 @@
     "preview": "rsbuild preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@fontsource/roboto": "^5.2.5",
+    "@mui/icons-material": "^7.0.2",
+    "@mui/material": "^7.0.2",
+    "@preact/signals": "^2.0.4",
     "animejs": "^4.0.1",
     "preact": "^10.26.5",
     "preact-iso": "^2.9.1"
@@ -18,7 +24,9 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@rsbuild/core": "^1.3.11",
+    "@rsbuild/plugin-less": "^1.2.2",
     "@rsbuild/plugin-preact": "^1.3.1",
+    "@rsbuild/plugin-typed-css-modules": "^1.0.2",
     "typescript": "^5.8.3"
   },
   "pnpm": {
