@@ -1,0 +1,50 @@
+.container {
+  background: unset;
+}
+
+.placeholder {
+  height: 50px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.body {
+  background-color: #494b64;
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  top: 0px;
+  box-shadow: 0px 2px 5px 0px #201e2ed4;
+  display: grid;
+  grid-template-columns: 50px 200px auto 100px 45px;
+  gap: 5px;
+}
+
+.body_logo {
+  width: 50px;
+  height: 50px;
+  background-color: blueviolet;
+}
+
+.body_search {
+  display: flex;
+  align-items: center;
+}
+
+.body_title {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body_links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body_right {
+  display: flex;
+  align-items: center;
+}

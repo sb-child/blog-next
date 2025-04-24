@@ -1,12 +1,13 @@
 import type { ComponentChildren } from "preact";
-import "./index.css";
-import { animate } from 'animejs';
+import * as styles from "./index.module.css";
+import { animate } from "animejs";
+import TopBar from "../components/TopBar";
 
 const App = (props: { children?: ComponentChildren }) => {
   return (
-    <div className="layout">
-      <h1>sbchild blog</h1>
-      {props.children}
+    <div className={styles.layout}>
+      <TopBar />
+      <div className={styles.content}>{props.children}</div>
     </div>
   );
 };
