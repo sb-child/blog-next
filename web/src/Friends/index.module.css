@@ -1,0 +1,14 @@
+.content {
+  margin: 24px auto;
+  padding: 0px 16px;
+  max-width: 1000px;
+}
+
+.title {
+  text-align: left;
+}
+
+.graph {
+  border: #fff 2px solid;
+  border-radius: 5px;
+}

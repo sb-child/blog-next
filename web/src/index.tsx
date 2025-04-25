@@ -7,9 +7,13 @@ import {
   lazy,
 } from "preact-iso";
 import App from "./App";
+import Article from "./Article";
+import Articles from "./Articles";
 import Background from "./Background";
 import Layout from "./Layout";
 import NotFound from "./NotFound";
+import Friends from "./Friends";
+import Friend from "./Friend";
 import "./index.css";
 
 import "@fontsource/roboto/300.css";
@@ -26,6 +30,10 @@ const darkTheme = createTheme({
 });
 
 const LazyIndex = lazy(async () => App);
+const LazyArticle = lazy(async () => Article);
+const LazyArticles = lazy(async () => Articles);
+const LazyFriends = lazy(async () => Friends);
+const LazyFriend = lazy(async () => Friend);
 const LazyNotFound = lazy(async () => NotFound);
 
 const SiteRouter = () => {
@@ -35,9 +43,10 @@ const SiteRouter = () => {
         <ErrorBoundary>
           <Router>
             <Route path="/" component={LazyIndex} />
-
-            {/* <Route path="/profiles" component={Profiles} />
-						<Route path="/profile/:id" component={Profile} /> */}
+            <Route path="/article/:id" component={LazyArticle} />
+            <Route path="/articles" component={LazyArticles} />
+            <Route path="/friend/:id" component={LazyFriend} />
+            <Route path="/friends" component={LazyFriends} />
 
             <Route component={LazyNotFound} default />
           </Router>
