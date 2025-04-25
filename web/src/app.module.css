@@ -1,0 +1,21 @@
+.content {
+  margin-top: 24px;
+}
+
+.title {
+  text-align: center;
+}
+
+.articles_container {
+  text-align: center;
+  background-color: #ffffff28;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  height: 200px;
+  box-shadow: 0px 2px 10px 0px #201e2ed4;
+}
+
+.alert_container {
+  margin: 0px auto 10px auto;
+  max-width: 500px;
+}
