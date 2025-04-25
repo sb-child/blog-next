@@ -64,7 +64,25 @@ const App = () => {
     <div className={styles.container}>
       <div className={styles.placeholder} />
       <div className={styles.body}>
-        <div className={styles.body_logo}>logo</div>
+        <div className={styles.body_logo}>
+          <Tooltip
+            title="回到首页"
+            slotProps={{
+              popper: {
+                modifiers: [
+                  {
+                    name: "offset",
+                    options: {
+                      offset: [0, -6],
+                    },
+                  },
+                ],
+              },
+            }}
+          >
+            <div className={styles.body_logo_inner}>logo</div>
+          </Tooltip>
+        </div>
         <div className={styles.body_search}>
           <SearchBox />
         </div>
